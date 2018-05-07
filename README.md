@@ -1,5 +1,7 @@
 # constellationJS
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/benchlab/constellationsJS.svg)](https://greenkeeper.io/)
+
 constellationJS worked directly with [dappJS](#https://github.com/benchlab/dappjs) provides a Javascript library for `Merkle tree state`, with `LevelUP persistence` and a super simple `interface`.
 
 `constellationJS` uses the ES6 Proxy API to give the best possible interface, it's just an object. Behind the scenes, `constellationJS` uses a Merkle AVL tree, which lets us do cool things like efficiently iterating through keys, making range proofs, etc. Since every child object is its own tree node, it's fast to update the db and recompute the hash even for very large states.
