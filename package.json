@@ -12,11 +12,11 @@
     "varstruct": "^6.1.1"
   },
   "devDependencies": {
-    "ava": "^0.24.0",
-    "leveldown": "^2.1.0",
+    "ava": "^0.25.0",
+    "leveldown": "^3.0.2",
     "levelup": "^2.0.1",
     "nyc": "^11.3.0",
-    "standard": "^10.0.3"
+    "standard": "^11.0.1"
   },
   "scripts": {
     "test": "standard src/* index.js && nyc --reporter=html ava && nyc report"
