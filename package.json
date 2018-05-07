@@ -1,6 +1,6 @@
 {
   "name": "constellationsjs",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "constellationsJS features a simple interface for Merkle Trees and works directly with dappJS, MoonCoin, MoonContracts and BenchCore.",
   "main": "index.js",
   "dependencies": {
