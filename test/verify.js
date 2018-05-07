@@ -4,7 +4,7 @@ let constellation = require('../src/constellation.js')
 
 test('verify single-node root proof', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
   state.foo = 'bar'
   await constellation.commit(state)
 
@@ -17,7 +17,7 @@ test('verify single-node root proof', async (t) => {
 
 test('verify single-node non-object child proof', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
   state.foo = 'bar'
   await constellation.commit(state)
 
@@ -30,7 +30,7 @@ test('verify single-node non-object child proof', async (t) => {
 
 test('verify multi-node root proof', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
   state.foo = 'bar'
   state.baz = { x: 123 }
   await constellation.commit(state)
@@ -44,7 +44,7 @@ test('verify multi-node root proof', async (t) => {
 
 test('verify multi-node child proof', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
   state.foo = 'bar'
   state.baz = { x: 123 }
   await constellation.commit(state)
@@ -58,7 +58,7 @@ test('verify multi-node child proof', async (t) => {
 
 test('verify multi-node non-object child proof', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
   state.foo = 'bar'
   state.baz = { x: 123 }
   await constellation.commit(state)
@@ -72,7 +72,7 @@ test('verify multi-node non-object child proof', async (t) => {
 
 test('verify with incorrect root hash', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
 
   state.foo = 'bar'
   await constellation.commit(state)
@@ -92,7 +92,7 @@ test('verify with incorrect root hash', async (t) => {
 
 test('verify with array range', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
 
   // state.abc = {n: 123}
   // state.array = [{n: 0}, {n: 1}, {n: 2}, {n: 3}]
@@ -125,7 +125,7 @@ test('verify with array range', async (t) => {
 
 test('verify with array child', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
 
   state.abc = {n: 123}
   state.array = [{n: 0}, {n: 1}, {n: 2}, {n: 3}]
@@ -140,7 +140,7 @@ test('verify with array child', async (t) => {
 
 test('verify with unproven range', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
 
   let rootHash = 'ac2323c6ebaafb3174c6dfac855ed0652f4651af'
   let proof = {
@@ -170,7 +170,7 @@ test('verify with unproven range', async (t) => {
 
 test('verify with unproven range', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
 
   let rootHash = 'ac2323c6ebaafb3174c6dfac855ed0652f4651af'
   let proof = {
@@ -200,7 +200,7 @@ test('verify with unproven range', async (t) => {
 
 test('verify with range that was previously broken', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
 
   let rootHash = '8cbbf63175e9390054c2155419ccea4ce38508a0'
   let proof = require('./fixtures/blockchat.json')
@@ -211,7 +211,7 @@ test('verify with range that was previously broken', async (t) => {
 
 test('verify with single-node tree with no root object', async (t) => {
   let db = simDb()
-  let state = await merk(db)
+  let state = await constellation(db)
 
   state.foo = { beep: 'boop' }
 
